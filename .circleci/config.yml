@@ -13,8 +13,17 @@ jobs:
             ls 
             pwd
             cat README.md
-  
+  test:
+    docker:
+      - image: alpine
+    steps:
+      - run:
+          name: "test step"
+          command: 
+            echo "Hello this is test step"
+          
 workflows:
   welcome:
     jobs:
       - build
+      - test
