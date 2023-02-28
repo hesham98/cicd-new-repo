@@ -15,8 +15,7 @@ jobs:
     docker:
       - image: cimg/node:18.11.0
     steps:
-      - sayhello:
-          to: "hesham"
+      - sayhello
 
       
 
