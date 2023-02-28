@@ -5,7 +5,7 @@ commands:
     parameters:
       to:
         type: string
-        default: "Hello World"
+        default: echo "This is pipeline ID << pipeline.id >>"
     steps:
       - run: echo << parameters.to >>
 
