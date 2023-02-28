@@ -3,16 +3,9 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: alpine
+      - image: cimg/base:2020.01
+
     steps:
-      - checkout # git clone <my repo>
-      - run:
-          name: "build the service"
-          command: 
-            echo "Hello this is build step"
-            ls 
-            pwd
-            cat README.md
       - run:
           name: "Setup custom environment variables"
           command: echo 'export MY_ENV_VAR="FOO"' >> "$BASH_ENV"
@@ -31,21 +24,10 @@ jobs:
       - run:
           name: "Print an env var stored in a Context"
           command: echo ${CONTEXT_ENV_VAR}
-      
-  test:
-    docker:
-      - image: alpine
-    steps:
-      - run:
-          name: "test step"
-          command: 
-            echo "Hello this is test step"
-          
+                    
 workflows:
   welcome:
     jobs:
       - build
-      - test:
-          requires:
-            - build
+      
             
