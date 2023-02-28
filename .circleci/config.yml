@@ -1,13 +1,10 @@
 version: 2.1
+
 commands:
-  sayhello:
-    description: "A very simple command for demonstration purposes"
-    parameters:
-      to:
-        type: string
-        default: echo "This is pipeline ID << pipeline.id >>"
-    steps:
-      - run: echo << parameters.to >>
+  id:
+    steps:        
+      - run: echo ${CIRCLE_WORKFLOW_ID}
+    
 
 jobs:
 
@@ -15,7 +12,7 @@ jobs:
     docker:
       - image: cimg/node:18.11.0
     steps:
-      - sayhello
+      - id
 
       
 
