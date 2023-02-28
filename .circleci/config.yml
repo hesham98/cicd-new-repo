@@ -13,7 +13,7 @@ jobs:
 
   testCommand:
     docker:
-      - image: ccircleci/node:13.8.0
+      - image: cimg/node:18.11.0
     steps:
       - sayhello:
           to: "hesham"
